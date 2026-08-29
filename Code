@@ -1,1 +1,25 @@
+public class Game_ {
 
+    public static void main(String[] args) {
+        Hero layla = new Hero();
+        layla.Name = "Layla";
+        layla.skilldmg = 100;
+        layla.herotype = "marksman";
+        layla.hp = 1000;
+        layla.exp = 500;
+
+        Hero zilong = new Hero();
+        zilong.Name = "Zilong";
+        zilong.skilldmg = 70;
+        zilong.herotype = "fighter";
+        zilong.hp = 2000;
+        zilong.exp = 500;
+
+        System.out.println(zilong.Name);
+        System.out.println(layla.Name);
+
+        System.out.println(layla.Name + " VS. " + zilong.Name);
+        System.out.println(layla.Name + " uses skill");
+        System.out.println("Zilong's HP left is " + (zilong.hp - layla.skilldmg));
+    }
+}
