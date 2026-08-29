@@ -1,1 +1,8 @@
+package game_;
 
+class Hero {
+    int skilldmg;
+    String Name;
+    String herotype;
+    int hp;
+    int exp;
