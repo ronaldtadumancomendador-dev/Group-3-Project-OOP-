@@ -1,10 +1,13 @@
 package com.mycompany.game;
 import java.util.Scanner;
+import java.util.Random;
 import java.util.InputMismatchException;
 public class Game {
     static Scanner scanner = new Scanner (System.in);
+    static Random random = new Random();
     public static void main(String[] args) {
         Hero player = null;
+        Hero enemy = null;
         
         Hero layla = new Hero();
         layla.Name = "Layla";
@@ -45,34 +48,48 @@ public class Game {
         
         try{
         int heroPick = scanner.nextInt();
-        if (heroPick == 1){
-            player = layla;
-            System.out.println("\n>> You pick [Layla]");
-            running = false;
-        }else if (heroPick ==2){
-            player = zilong;
-            System.out.println("\n>> You pick [Zilong]");
-            running = false;
-        }else if (heroPick == 3){
-            player = nana;
-            System.out.println("\n>> You pick [Nana]");
-            running = false;
-        }else if (heroPick == 4){
-            player = tigreal;
-            System.out.println("\n>> You pick [Tigreal]");
-            running = false;
-        }else{
-            System.out.println("\n>> Invalid input! Not within the menu");
-        }
+            if (heroPick == 1){
+                player = layla;
+                System.out.println("\n>> {You} pick [Layla]");
+                running = false;
+            }else if (heroPick ==2){
+                player = zilong;
+                System.out.println("\n>> {You} pick [Zilong]");
+                running = false;
+            }else if (heroPick == 3){
+                player = nana;
+                System.out.println("\n>> {You} pick [Nana]");
+                running = false;
+            }else if (heroPick == 4){
+                player = tigreal;
+                System.out.println("\n>> {You} pick [Tigreal]");
+                running = false;
+            }else{
+                System.out.println("\n>> Invalid input! Not within the menu");
+            }
         
         }catch(InputMismatchException e) {
             System.out.println("\n>> Invalid input! Please enter a number");
             scanner.next();
+        }   
+    }               
+    Random random = new Random();
+    do{
+    int enemyPick = random.nextInt(4) + 1;
+        if(enemyPick == 1){
+            enemy = layla;
+            System.out.println(">> Your {Opponent} has selected [Layla]");
+        }else if (enemyPick == 2){
+            enemy = zilong;
+            System.out.println(">> Your {Opponent} has selected [Zilong]");
+        }else if (enemyPick == 3){
+            enemy = nana;
+            System.out.println(">> Your {Opponent} has selected [Nana]");
+        }else if (enemyPick == 4){
+            enemy = tigreal;
+            System.out.println(">> Your {Opponent} has selected [Tigreal]");
         }
-        
+    }while(enemy == player); 
+
     }
-    }
-    
-    
-    
 }
