@@ -1,6 +1,11 @@
-public class Game_ {
-
+package com.mycompany.game;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+public class Game {
+    static Scanner scanner = new Scanner (System.in);
     public static void main(String[] args) {
+        Hero player = null;
+        
         Hero layla = new Hero();
         layla.Name = "Layla";
         layla.skilldmg = 100;
@@ -14,12 +19,60 @@ public class Game_ {
         zilong.herotype = "fighter";
         zilong.hp = 2000;
         zilong.exp = 500;
-
-        System.out.println(zilong.Name);
-        System.out.println(layla.Name);
-
-        System.out.println(layla.Name + " VS. " + zilong.Name);
-        System.out.println(layla.Name + " uses skill");
-        System.out.println("Zilong's HP left is " + (zilong.hp - layla.skilldmg));
+        
+        Hero nana = new Hero();
+        nana.Name = "Zilong";
+        nana.skilldmg = 70;
+        nana.herotype = "fighter";
+        nana.hp = 2000;
+        nana.exp = 500;
+        
+        Hero tigreal = new Hero();
+        tigreal.Name = "Zilong";
+        tigreal.skilldmg = 70;
+        tigreal.herotype = "fighter";
+        tigreal.hp = 2000;
+        tigreal.exp = 500;
+    
+        System.out.println(">> CONSOLE LEGENDS: PEW PEW\n");
+        
+        boolean running = true;
+        while(running){
+        System.out.println("==========={Hero selection}===========");
+        System.out.println("[1] Layla\n[2] Zilong\n[3] Nana\n[4] Tigreal");
+        System.out.println("======================================");
+        System.out.print(">> Select your hero: ");
+        
+        try{
+        int heroPick = scanner.nextInt();
+        if (heroPick == 1){
+            player = layla;
+            System.out.println("\n>> You pick [Layla]");
+            running = false;
+        }else if (heroPick ==2){
+            player = zilong;
+            System.out.println("\n>> You pick [Zilong]");
+            running = false;
+        }else if (heroPick == 3){
+            player = nana;
+            System.out.println("\n>> You pick [Nana]");
+            running = false;
+        }else if (heroPick == 4){
+            player = tigreal;
+            System.out.println("\n>> You pick [Tigreal]");
+            running = false;
+        }else{
+            System.out.println("\n>> Invalid input! Not within the menu");
+        }
+        
+        }catch(InputMismatchException e) {
+            System.out.println("\n>> Invalid input! Please enter a number");
+            scanner.next();
+        }
+        
     }
+    }
+    
+    
+    
 }
