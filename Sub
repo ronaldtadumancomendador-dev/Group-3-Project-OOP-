@@ -1,8 +1,10 @@
-package game_;
+package com.mycompany.game;
 
-class Hero {
+public class Hero {
     int skilldmg;
+    int basicdmg;
     String Name;
     String herotype;
     int hp;
     int exp;
+}
