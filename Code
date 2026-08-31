@@ -134,10 +134,33 @@ public class Game {
                     if (BSenemy == 1){
                         System.out.println(">> " + enemy.Name + " attacks!");
                         System.out.println(">> Dealt " + enemy.basicdmg + " damage!");
+                        
+                        if(player.hp <= 0){
+                            player.hp = 0;
+                            System.out.println(">> " + player.Name + " HP = " + player.hp);
+                            System.out.println("\n>> " + player.Name + " has been defeated!");
+                            System.out.println(">> YOU LOSE!");
+
+                            fighting = false;
+                            subAttack = false;
+                            continue;                        
+                        }                   
                         System.out.println(">> " + player.Name + " HP = " +(player.hp -= enemy.basicdmg));
+                        
                     }else if(BSenemy == 2){
                         System.out.println(">> " + enemy.Name + " attacks!");
                         System.out.println(">> Dealt " + enemy.skilldmg + " damage!");
+                        
+                        if(player.hp <= 0){
+                            player.hp = 0;
+                            System.out.println(">> " + player.Name + " HP = " + player.hp);
+                            System.out.println("\n>> " + player.Name + " has been defeated!");
+                            System.out.println(">> YOU LOSE!");
+
+                            fighting = false;
+                            subAttack = false;
+                            continue;                        
+                        }                        
                         System.out.println(">> " + player.Name + " HP = " +(player.hp -= enemy.skilldmg));
                     }
                     subAttack = false;
@@ -178,7 +201,6 @@ public class Game {
             //checking hero status
         }else{
             System.out.println("\n>> Invalid input! Not within the menu");
-            fighting = false;
         }
         
         }catch(InputMismatchException e){
@@ -189,4 +211,3 @@ public class Game {
     }     
   }
 }
-
